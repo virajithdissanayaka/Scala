@@ -1,17 +1,20 @@
 object Q1 {
 
   def main(args: Array[String]): Unit = {
-    val temperatures = List(0.0, 10.0, 20.0, 30.0)
-    println(s"Average Fahrenheit Temperature: ${calculateAverage(temperatures)}")
+    var cel = List(0, 10, 20, 30)
+    celtofar(cel)
+
   }
 
-  def calculateAverage(temperatures: List[Double]): Double = {
-    temperatures.map(CtoF).reduce(calcTemp) / temperatures.length
+  def celtofar(cel: List[Int]) = {
+    //creating a Farenheit temperature list
+    var far = cel.map(temp => (temp * 9 / 5) + 32)
+    println("Average Fahrenheit temperature: " + average(far))
   }
 
-  val CtoF: Double => Double = celsius => (celsius * 9 / 5) + 32
-
-  val calcTemp: (Double, Double) => Double = (a, b) => a + b
+  def average(far: List[Int]): Double = {
+    //the reduce method sums up the elements in the List
+    far.reduce((x, y) => x + y) / far.length
+  }
 
 }
-//59 enne hendagen ahanna(68.0 enna oona)

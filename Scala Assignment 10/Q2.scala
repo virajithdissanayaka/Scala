@@ -1,14 +1,11 @@
 object Q2 {
   def main(args: Array[String]): Unit = {
-    val words = List("apple", "banana", "cherry", "date")
-    println(s"Total count of letter occurrences: ${countLetterOccurrences(words)}")
+    var fruit = List("apple", "banana", "cherry", "date")
+    println("Total count of letter occurrences:" + countletters(fruit))
   }
 
-  def countLetterOccurrences(words: List[String]): Int = {
-    words.map(Count).reduce(calcTot)
+  def countletters(value: List[String]) = {
+    var lengths = value.map(num => num.length)
+    lengths.reduce((x, y) => x + y)
   }
-
-  val Count: String => Int = word => word.length
-
-  val calcTot: (Int, Int) => Int = (a, b) => a + b
 }
